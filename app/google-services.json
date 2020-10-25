@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "482328997346",
+    "firebase_url": "https://rybapp-5d2a7.firebaseio.com",
+    "project_id": "rybapp-5d2a7",
+    "storage_bucket": "rybapp-5d2a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482328997346:android:fcf9abb491f5d5efd95dbb",
+        "android_client_info": {
+          "package_name": "com.rybapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482328997346-3i3g9fcnf3die3b14oglh20ndkrdu7ct.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rybapp",
+            "certificate_hash": "cf1947d94231667a35a5e10d501d29b04ece2ff0"
+          }
+        },
+        {
+          "client_id": "482328997346-d6i47c5iaatns859hn1sua7fqcvsukp6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPES4G2h1gOsH9L-r6ZcE0RrLtbeEOJbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482328997346-d6i47c5iaatns859hn1sua7fqcvsukp6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -30,7 +30,33 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            android:backgroundTint="#313030"/>
+            android:backgroundTint="#313030"
+            android:layout_marginTop="-60dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/border"
+            android:orientation="horizontal"
+            android:layout_marginTop="-5dp"
+            android:layout_marginLeft="-5dp"
+            android:layout_marginRight="-5dp"
+            android:paddingTop="5dp"
+            android:scaleType="centerInside">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:clickable="false"
+                android:textSize="21sp"
+                android:padding="5dp"
+                android:text="Rybapp"
+                android:layout_marginLeft="145dp"
+                android:textColor="#FFC300"/>
+        </LinearLayout>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -197,30 +223,9 @@
             android:textSize="14sp"
             android:padding="5dp"
             android:layout_marginTop="12dp"
-            android:text="This is just a placeholder for GPS message"
+            android:text="This is just a concept of an app"
             android:textColor="#FFC300"/>
     </LinearLayout>
-        <TextView
-            android:text="Rybapp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="21dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="13dp"
-            android:id="@+id/Rybapp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
-
-        <TextView
-            android:text="Powered by FreedomDesign"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Powered"
-            android:layout_marginLeft="21dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="43dp"/>
 
     </LinearLayout>
 

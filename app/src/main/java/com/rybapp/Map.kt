@@ -3,8 +3,6 @@ package com.rybapp
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.os.CountDownTimer
-import android.os.Handler
 import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -53,12 +51,10 @@ class Map : AppCompatActivity(), OnMapReadyCallback {
         for (i in 0 until name.size) {
             Log.d(lat[i].toString(),lng[i].toString())
             val latLng = LatLng(lat[i],lng[i])
-            print(latLng)
             mMap.addMarker(MarkerOptions().position(latLng).title(name[i]))
         }
         mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(51.98,19.48)))
         mMap.animateCamera(CameraUpdateFactory.zoomTo(6.0f));
-        val toastDurationInMilliSeconds = 10000
         var toast: Toast
         var imageView = ImageView(this)
 
@@ -66,6 +62,7 @@ class Map : AppCompatActivity(), OnMapReadyCallback {
             Log.d("title",marker.title)
             val resID =
                 resources.getIdentifier(marker.title, "drawable", packageName)
+            Log.d("map2: ", resID.toString())
             imageView.setImageResource(resID); //define new image for imageView
 
             toast = Toast(context)

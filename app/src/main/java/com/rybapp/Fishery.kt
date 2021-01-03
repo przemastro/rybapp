@@ -2,23 +2,46 @@ package com.rybapp
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ListView
 import android.widget.TextView
 
 /**
  * Created by Przemek on 24.10.2020.
  */
 class Fishery : Activity() {
-    var textViewNumero: TextView? = null
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fishery)
+
+        val context = this
+        val db = DatabaseHelper(context)
+        db?.insertFavorites()
+        val list = db.getFavorites()
+        val fishery = list[0]
+        val description = list[1]
+
+        val favoritesAdapter = MyFavoritesAdapter(this,fishery,description)
+        var listView = findViewById<ListView>(R.id.favoritesListView)
+        listView.adapter = favoritesAdapter
+
+        /*
+        listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, position, id ->
+            val itemIdAtPos = adapterView.getItemIdAtPosition(position)
+            val itemLink = links[itemIdAtPos.toInt()]
+
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(itemLink))
+            startActivity(browserIntent)
+        }*/
     }
 
-    companion object {
-        var idValue: String? = null
-    }
 
     fun onButtonClick(v: View) {
         if (v.id == R.id.main) {

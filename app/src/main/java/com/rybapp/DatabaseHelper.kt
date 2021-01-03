@@ -12,13 +12,15 @@ import java.time.LocalDate
 val DATABASE_NAME = "RybappDB"
 val TABLE_NAME_EVENTS = "EVENTS"
 val TABLE_NAME_FISHERY = "FISHERY"
+val TABLE_NAME_FAVORITES = "FAVORITES"
 
 class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, 4) {
 
     override fun onCreate(db: SQLiteDatabase?) {
         try {
             db?.execSQL("create table " + TABLE_NAME_EVENTS + " (ID INTEGER, EVENT TEXT, EVENT_DATE TEXT, LINK TEXT);");
-            db?.execSQL("create table " + TABLE_NAME_FISHERY + " (ID INTEGER, FISHERY TEXT, LAT TEXT, LNG TEXT);");
+            db?.execSQL("create table " + TABLE_NAME_FISHERY + " (ID INTEGER, FISHERY TEXT, LAT TEXT, LNG TEXT, DESCRIPTION TEXT);");
+            db?.execSQL("create table " + TABLE_NAME_FAVORITES + " (ID INTEGER, LOGIN TEXT, FISHERY_ID INTEGER);");
         } catch (e: SQLException) {
             print(e)
         }
@@ -52,21 +54,28 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun insertFishery() {
-        val today = LocalDate.now() //Today
-
         val db = this.writableDatabase
         db?.execSQL("DELETE FROM " + TABLE_NAME_FISHERY);
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('1','kierskie','52.46', '16.78');");
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('2','niepruszewskie','52.37', '16.61');");
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('3','dabie','53.75', '14.46');");
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('4','jamno','54.27', '16.15');");
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('5','jeziorsko','51.82', '18.69');");
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('6','kornickie','52.24', '17.08');");
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('7','lebsko','54.71', '17.39');");
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('8','niegocin','54.00', '21.77');");
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('9','zbaszynskie','52.23', '15.90');");
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('10','powidzkie','52.41', '17.93');");
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('11','sniardwy','53.75', '21.72');");
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('1','kierskie','52.46', '16.78', 'Jezioro rynnowe polodowcowe, położone w zachodniej części Poznania. Jest to największy zbiornik wodny miasta i jeden z największych w Wielkopolsce. Jezioro leży na terenie Pojezierza Poznańskiego.');");
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('2','niepruszewskie','52.37', '16.61', 'Jezioro w Polsce, w województwie wielkopolskim, w powiecie poznańskim, na terenie gmin Dopiewo i Buk należące do Pojezierza Poznańskiego w dorzeczu Warty, 7 km na wschód od Buku, na wysokości 76,3 m n.p.m.');");
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('3','dabie','53.75', '14.46', '');");
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('4','jamno','54.27', '16.15', '');");
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('5','jeziorsko','51.82', '18.69', '');");
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('6','kornickie','52.24', '17.08', '');");
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('7','lebsko','54.71', '17.39', '');");
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('8','niegocin','54.00', '21.77', '');");
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('9','zbaszynskie','52.23', '15.90', '');");
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('10','powidzkie','52.41', '17.93', '');");
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('11','sniardwy','53.75', '21.72', '');");
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun insertFavorites() {
+        val db = this.writableDatabase
+        db?.execSQL("DELETE FROM " + TABLE_NAME_FAVORITES);
+        db?.execSQL("insert into " + TABLE_NAME_FAVORITES + " values ('1','pjag', 1);");
+        db?.execSQL("insert into " + TABLE_NAME_FAVORITES + " values ('2','pjag', 2);");
+
     }
 
     fun getEvents(): MutableList<String> {
@@ -118,6 +127,30 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
             while (res.moveToNext())
         }
         return list
+    }
+
+    fun getFavorites(): Array<MutableList<String>> {
+        val list: MutableList<String> = ArrayList()
+        val list2: MutableList<String> = ArrayList()
+        val db = this.readableDatabase
+        val query = "SELECT fi.FISHERY, fi.DESCRIPTION FROM " + TABLE_NAME_FISHERY + " as fi JOIN " + TABLE_NAME_FAVORITES + " as fa ON fi.ID=fa.FISHERY_ID WHERE fa.LOGIN='pjag'"
+        val res = db.rawQuery(query, null)
+        var fishery: String
+        var description: String
+        res.moveToFirst()
+        if (res.moveToFirst()) {
+            do {
+                fishery = res.getString(res.getColumnIndex("FISHERY"))
+                description = res.getString(res.getColumnIndex("DESCRIPTION"))
+                list.add(fishery)
+                list2.add(description)
+            }
+            while (res.moveToNext())
+        }
+        return arrayOf(
+            list,
+            list2
+        )
     }
 
     fun getFishery(): Array<MutableList<String>> {

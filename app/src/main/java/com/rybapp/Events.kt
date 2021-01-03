@@ -9,7 +9,6 @@ import android.support.annotation.RequiresApi
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ListView
-import android.widget.Toast
 
 
 /**
@@ -34,7 +33,6 @@ class Events : Activity() {
         listView.adapter = myListAdapter
 
         listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, position, id ->
-            val selectedItem = adapterView.getItemAtPosition(position) as String
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
             val itemLink = links[itemIdAtPos.toInt()]
 

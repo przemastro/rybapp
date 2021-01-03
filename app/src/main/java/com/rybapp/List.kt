@@ -9,7 +9,7 @@ import android.widget.TextView
 /**
  * Created by Przemek on 24.10.2020.
  */
-class List : Activity() {
+class List<T> : Activity() {
     var textViewNumero: TextView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

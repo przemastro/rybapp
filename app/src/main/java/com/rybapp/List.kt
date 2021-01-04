@@ -2,22 +2,36 @@ package com.rybapp
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.view.View
-import android.widget.TextView
+import android.widget.ListView
 
 /**
  * Created by Przemek on 24.10.2020.
  */
 class List<T> : Activity() {
-    var textViewNumero: TextView? = null
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list)
-    }
 
-    companion object {
-        var idValue: String? = null
+
+        val context = this
+        val db = DatabaseHelper(context)
+        db.insertUsers()
+        db.insertFishing()
+        val listWithNew = db.getFishing("NEW")
+        val listWithOld = db.getFishing("OLD")
+
+        var fishingAdapter = MyFishingAdapter(this,listWithNew[0],listWithNew[1],listWithNew[2],listWithNew[3])
+        var listViewNew = findViewById<ListView>(R.id.fishingNewListView)
+        listViewNew.adapter = fishingAdapter
+
+        fishingAdapter = MyFishingAdapter(this,listWithOld[0],listWithOld[1],listWithOld[2],listWithOld[3])
+        val listViewOld = findViewById<ListView>(R.id.fishingOldListView)
+        listViewOld.adapter = fishingAdapter
     }
 
     fun onButtonClick(v: View) {

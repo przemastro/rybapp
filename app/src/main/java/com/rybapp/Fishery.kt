@@ -2,14 +2,11 @@ package com.rybapp
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.view.View
-import android.widget.AdapterView
 import android.widget.ListView
-import android.widget.TextView
 
 /**
  * Created by Przemek on 24.10.2020.
@@ -23,7 +20,8 @@ class Fishery : Activity() {
 
         val context = this
         val db = DatabaseHelper(context)
-        db?.insertFavorites()
+        db.insertUsers()
+        db.insertFavorites()
         val list = db.getFavorites()
         val fishery = list[0]
         val description = list[1]

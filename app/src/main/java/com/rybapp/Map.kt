@@ -40,7 +40,7 @@ class Map : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         val context = this
         val db = DatabaseHelper(context)
-        db.insertFishery()
+
         mMap = googleMap
 
         val list = db.getFishery()

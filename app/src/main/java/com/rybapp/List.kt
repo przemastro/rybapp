@@ -20,8 +20,7 @@ class List<T> : Activity() {
 
         val context = this
         val db = DatabaseHelper(context)
-        db.insertUsers()
-        db.insertFishing()
+
         val listWithNew = db.getFishing("NEW")
         val listWithOld = db.getFishing("OLD")
 

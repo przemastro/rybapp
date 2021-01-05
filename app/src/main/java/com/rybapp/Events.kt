@@ -23,8 +23,6 @@ class Events : Activity() {
         val context = this
         val db = DatabaseHelper(context)
 
-        db.insertEvents()
-
         val events = db?.getEvents()
         val dates = db?.getDates()
         val links = db?.getLinks()

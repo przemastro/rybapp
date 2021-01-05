@@ -20,8 +20,7 @@ class Fishery : Activity() {
 
         val context = this
         val db = DatabaseHelper(context)
-        db.insertUsers()
-        db.insertFavorites()
+
         val list = db.getFavorites()
         val fishery = list[0]
         val description = list[1]

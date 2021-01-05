@@ -60,7 +60,7 @@
                 android:textSize="21sp"
                 android:padding="5dp"
                 android:text="Dodaj połów"
-                android:layout_marginLeft="65dp"
+                android:layout_marginLeft="70dp"
                 android:textColor="#FFC300"/>
         </LinearLayout>
 
@@ -71,17 +71,114 @@
         android:layout_height="match_parent"
         android:background="#000000">
 
-        <TextView
-            android:text="Placeholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="70dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginLeft="-5dp">
+        <ImageButton
+            android:id="@+id/photoButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="173dp"
-            android:id="@+id/textView"
-            tools:text="Hola!"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse" />
+            android:background="@drawable/selectable_button"
+            android:src="@drawable/camera"
+            android:scaleType="centerInside"
+            android:layout_gravity="center_horizontal"/>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="340dp"
+            android:layout_height="310dp"
+            android:layout_above="@+id/photoButton"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/border"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginTop="480dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/fishField"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
+                android:layout_above="@id/button"
+                android:layout_centerInParent="true"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center_horizontal"
+                android:hint="Ryba"/>
+
+            <EditText
+                android:id="@+id/weightField"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
+                android:layout_above="@id/button"
+                android:layout_centerInParent="true"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center_horizontal"
+                android:hint="Waga"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+            <Spinner
+                android:id="@+id/fisheryField"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
+                android:layout_above="@id/button"
+                android:layout_centerInParent="true"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <EditText
+                android:id="@+id/fishingDateField"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
+                android:layout_above="@id/button"
+                android:layout_centerInParent="true"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="560dp">
+        <Button
+            android:id="@+id/button"
+            android:layout_width="310dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:text="Dodaj połów"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:background="#0C74AE"
+            android:textAllCaps="false"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

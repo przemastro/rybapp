@@ -1,7 +1,9 @@
 package com.rybapp
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
@@ -10,11 +12,19 @@ import android.view.View
 import com.rybapp.Fishery
 
 class MainActivity : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
+        val context = this
+        val db = DatabaseHelper(context)
+        db.insertUsers()
+        db.insertFishing()
+        db.insertFishery()
+        db.insertEvents()
+        db.insertFavorites()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

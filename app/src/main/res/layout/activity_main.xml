@@ -223,7 +223,7 @@
             android:textSize="14sp"
             android:padding="5dp"
             android:layout_marginTop="12dp"
-            android:text="This is just a concept of an app"
+            android:text="To jest tylko wersja demonstracyjna"
             android:textColor="#FFC300"/>
     </LinearLayout>
 

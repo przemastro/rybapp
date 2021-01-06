@@ -21,6 +21,9 @@
         <activity android:name=".Fishery"
                   android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".FisheryDetails"
+            android:screenOrientation="portrait">
+        </activity>
         <activity android:name=".Fishing"
             android:screenOrientation="portrait">
         </activity>

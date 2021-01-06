@@ -31,10 +31,11 @@ class MyFavoritesAdapter(private val context: Activity, private val fishery: Mut
 
         subtitleText.setTextColor(Color.WHITE)
         subtitleText.layoutParams.width = 700
-        subtitleText.setPadding(20,0,20,0)
+        subtitleText.layoutParams.height = 200
+        subtitleText.setPadding(15,0,0,0)
 
         titleText.setBackgroundColor(Color.parseColor("#0C74AE"))
-        titleText.setPadding(20,0,20,0)
+        titleText.setPadding(0,0,0,0)
         titleText.setTextColor(Color.WHITE)
 
         //favoriteIcon.setBackgroundColor(Color.parseColor("#0C74AE"))

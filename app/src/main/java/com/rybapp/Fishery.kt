@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
+import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
 
 /**
@@ -29,14 +31,17 @@ class Fishery : Activity() {
         var listView = findViewById<ListView>(R.id.favoritesListView)
         listView.adapter = favoritesAdapter
 
-        /*
-        listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, position, id ->
-            val itemIdAtPos = adapterView.getItemIdAtPosition(position)
-            val itemLink = links[itemIdAtPos.toInt()]
 
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(itemLink))
-            startActivity(browserIntent)
-        }*/
+        listView.onItemClickListener = AdapterView.OnItemClickListener { favoritesAdapter, view, position, id ->
+            val itemIdAtPos = favoritesAdapter.getItemIdAtPosition(position)
+            val name = favoritesAdapter.getItemAtPosition(itemIdAtPos.toInt())
+
+            //val itemLink = links[itemIdAtPos.toInt()]
+
+            val intent = Intent(this, FisheryDetails::class.java)
+            intent.putExtra("fishery", name.toString())
+            startActivity(intent)
+        }
     }
 
 

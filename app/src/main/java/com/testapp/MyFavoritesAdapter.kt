@@ -1,17 +1,14 @@
-package com.rybapp
+package com.testapp
 
 import android.app.Activity
 import android.graphics.Color
 import android.os.Build
 import android.support.annotation.RequiresApi
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import android.content.Context
-import android.content.res.Resources
 
 class MyFavoritesAdapter(private val context: Activity, private val fishery: MutableList<String>, private val description: MutableList<String>)
     : ArrayAdapter<String>(context, R.layout.custom_list2, fishery) {

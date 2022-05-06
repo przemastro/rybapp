@@ -59,7 +59,7 @@
                 android:clickable="false"
                 android:textSize="21sp"
                 android:padding="5dp"
-                android:text="Lista połowów"
+                android:text="Fishing History"
                 android:layout_marginLeft="60dp"
                 android:textColor="#FFC300"/>
         </LinearLayout>
@@ -87,7 +87,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Zaraportowane"
+                android:text="Accepted"
                 android:textColor="#FFFFFF"
                 android:background="#0C74AE"
                 android:layout_marginBottom="10dp"
@@ -109,7 +109,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Nowe"
+                android:text="New"
                 android:textColor="#FFFFFF"
                 android:background="#0C74AE"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />

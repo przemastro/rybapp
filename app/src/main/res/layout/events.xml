@@ -59,7 +59,7 @@
                 android:clickable="false"
                 android:textSize="21sp"
                 android:padding="5dp"
-                android:text="Wydarzenia"
+                android:text="Events"
                 android:layout_marginLeft="70dp"
                 android:textColor="#FFC300"/>
         </LinearLayout>

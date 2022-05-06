@@ -1,4 +1,4 @@
-package com.rybapp
+package com.testapp
 
 import android.Manifest
 import android.app.Activity

@@ -59,7 +59,7 @@
                 android:clickable="false"
                 android:textSize="21sp"
                 android:padding="5dp"
-                android:text="Dodaj połów"
+                android:text="Add Latest Fishing"
                 android:layout_marginLeft="70dp"
                 android:textColor="#FFC300"/>
         </LinearLayout>
@@ -123,7 +123,7 @@
                 android:background="#FFFFFF"
                 android:layout_marginBottom="20dp"
                 android:layout_gravity="center_horizontal"
-                android:hint="Ryba"/>
+                android:hint="Engineer"/>
 
             <EditText
                 android:id="@+id/weightField"
@@ -134,7 +134,7 @@
                 android:background="#FFFFFF"
                 android:layout_marginBottom="20dp"
                 android:layout_gravity="center_horizontal"
-                android:hint="Waga"/>
+                android:hint="Salary"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -172,7 +172,7 @@
             android:layout_width="310dp"
             android:layout_height="50dp"
             android:layout_centerInParent="true"
-            android:text="Dodaj połów"
+            android:text="Add Fishing"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:background="#0C74AE"

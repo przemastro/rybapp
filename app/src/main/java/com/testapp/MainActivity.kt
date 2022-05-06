@@ -1,4 +1,4 @@
-package com.rybapp
+package com.testapp
 
 import android.content.Intent
 import android.os.Build
@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.rybapp.Fishery
 
 class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)

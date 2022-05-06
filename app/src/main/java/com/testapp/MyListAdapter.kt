@@ -1,16 +1,13 @@
-package com.rybapp
+package com.testapp
 
 import android.app.Activity
 import android.graphics.Color
 import android.graphics.Color.WHITE
 import android.os.Build
 import android.support.annotation.RequiresApi
-import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 
 

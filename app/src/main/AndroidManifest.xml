@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.rybapp">
+    package="com.testapp">
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Rybapp"
+        android:label="Testapp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.testapp.MainActivity"
             android:screenOrientation="portrait"
-            android:label="Rybapp"
+            android:label="Testapp"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Fishery"
+        <activity android:name="com.testapp.Fishery"
                   android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".FisheryDetails"
+        <activity android:name="com.testapp.FisheryDetails"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Fishing"
+        <activity android:name="com.testapp.Fishing"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".List"
+        <activity android:name="com.testapp.List"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Events"
+        <activity android:name="com.testapp.Events"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Map"
+        <activity android:name="com.testapp.Map"
             android:screenOrientation="portrait">
         </activity>
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -44,7 +44,7 @@
             />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${mapsApiKey}" />
+            android:value="AIzaSyCdgdNTNle_gyjqOwzwurTFHAbJtvPRsSE" />
     </application>
 
 </manifest>

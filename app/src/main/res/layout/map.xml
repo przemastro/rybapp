@@ -60,7 +60,7 @@
                 android:clickable="false"
                 android:textSize="21sp"
                 android:padding="5dp"
-                android:text="Mapa akwenów"
+                android:text="Fishing Grounds Map"
                 android:layout_marginLeft="55dp"
                 android:textColor="#FFC300"/>
         </LinearLayout>

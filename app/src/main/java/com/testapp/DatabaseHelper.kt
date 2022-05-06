@@ -1,4 +1,4 @@
-package com.rybapp
+package com.testapp
 
 import android.content.Context
 import android.database.SQLException
@@ -8,7 +8,6 @@ import android.os.Build
 import android.support.annotation.RequiresApi
 import android.util.Log
 import java.time.LocalDate
-import kotlin.math.max
 
 val DATABASE_NAME = "RybappDB"
 val TABLE_NAME_EVENTS = "EVENTS"
@@ -43,35 +42,24 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
 
         val db = this.writableDatabase
         db?.execSQL("DELETE FROM " + TABLE_NAME_EVENTS)
-        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('1','Otwarte mistrzostwa Polski w spinningu na rzece Nysa Kłodzka','"+ today.plusDays(1).toString()+"', 'http://www.pzw.org.pl/pzw/');")
-        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('2','Pierwszy krajowy konkurs spławikowy w Wieluniu. Zawody odbędą się w formule \"1 spławik, 1  żyłka \"','"+ today.plusDays(8).toString()+"', 'http://www.pzw.org.pl/jeleniagora/');")
-        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('3','Kobiecy turniej wędkarski \"Złoty Karp\" - Osowa Góra','"+ today.plusDays(12).toString()+"', 'http://www.poznan.pzw.org.pl/');")
-        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('4','Mazurski wielki połów grubego leszcza. Zawody potrwają do 20 Grudnia 2021','"+ today.plusDays(14).toString()+"', 'http://www.pzw.org.pl/pzw/');")
-        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('5','Dziesiątka Wielkopolska - turniej otwarty. Kategoria wiekowa 60+','"+ today.plusDays(18).toString()+"', 'http://www.pzw.org.pl/pzw/');")
-        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('6','Bałtyckie Dorsze i Flondry','"+ today.plusDays(19).toString()+"', 'http://www.pzw.org.pl/jeleniagora/');")
-        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('7','Mistrzostwa spinningowe - rzeka San','"+ today.plusDays(24).toString()+"', 'http://www.poznan.pzw.org.pl/');")
-        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('8','Bałtyckie Dorsze i Flondry - druga edycja','"+ today.plusDays(25).toString()+"', 'http://www.poznan.pzw.org.pl/');")
-        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('9','Złota Flondra','"+ today.plusDays(28).toString()+"', 'http://www.pzw.org.pl/pzw/');")
-        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('10','Mistrzostwa spinningowe - rzeka Wisła','"+ today.plusDays(31).toString()+"', 'http://www.pzw.org.pl/pzw/');")
-        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('11','Górski pogrom','"+ today.plusDays(38).toString()+"', 'http://www.pzw.org.pl/pzw/');")
-        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('12','Śląskie płotki','"+ today.plusDays(42).toString()+"', 'http://www.poznan.pzw.org.pl/');")
+        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('1','4Developers - The largest interdisciplinary technology festival for programmers in Poland','"+ today.plusDays(1).toString()+"', 'https://www.miquido.com/');")
+        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('2','DżawaLovers - The only place where you can feel like at home','"+ today.plusDays(8).toString()+"', 'https://www.miquido.com/');")
+        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('3','DevOps4Ever - Place not defined yet','"+ today.plusDays(12).toString()+"', 'https://www.miquido.com/');")
+        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('4','To Code or Not to Code Conference - Warsaw','"+ today.plusDays(14).toString()+"', 'https://www.miquido.com/');")
+        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('5','QA SpaceTime - Cracow','"+ today.plusDays(18).toString()+"', 'https://www.miquido.com/');")
+        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('6','Baltic IT Heroes for recruiters - Gdańsk','"+ today.plusDays(19).toString()+"', 'https://www.miquido.com/');")
+        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('7','Cracow IT Days','"+ today.plusDays(24).toString()+"', 'https://www.miquido.com/');")
+        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('8','Bug or Feature - biggest QA conference in Poland','"+ today.plusDays(25).toString()+"', 'https://www.miquido.com/');")
+        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('9','The golden member of IT festival','"+ today.plusDays(28).toString()+"', 'https://www.miquido.com/');")
+        db?.execSQL("insert into " + TABLE_NAME_EVENTS + " values ('10','PHP is dead - the final conference of PHP developers','"+ today.plusDays(31).toString()+"', 'https://www.miquido.com/');")
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun insertFishery() {
         val db = this.writableDatabase
         db?.execSQL("DELETE FROM " + TABLE_NAME_FISHERY)
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('1','kierskie','52.46', '16.78', 'Jezioro rynnowe polodowcowe, położone w zachodniej części Poznania. Jest to największy zbiornik wodny miasta i jeden z największych w Wielkopolsce. Jezioro leży na terenie Pojezierza Poznańskiego.', 'Leszcze, Karpie królewskie, Szczupaki, Sumy', 'Powierzchnia 9851,0 - 10282,4 ha', '- max długość 20 km', '- max szerokość 12 km', 'średnia 9,8 m', 'maksymalna 43,8 m', 'Karp królewski 12m. Połów wykonany w roku 1984 przez Remigusza Pospieszyńskiego w ramach kłusownictwa. Obywatel został skazany na 4 lata więzienia.');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('2','niepruszewskie','52.37', '16.61', 'Jezioro w Polsce, w województwie wielkopolskim, w powiecie poznańskim, na terenie gmin Dopiewo i Buk należące do Pojezierza Poznańskiego w dorzeczu Warty, 7 km na wschód od Buku, na wysokości 76,3 m n.p.m.', 'Leszcze, Płocie, Liny, Karasie', 'Powierzchnia 961,0 - 9282,4 ha', '- max długość 10 km', '- max szerokość 9 km', 'średnia 5,8 m', 'maksymalna 13,8 m', 'Szczupak 12m. Połów wykonany w roku 1999 przez Remigusza Pospieszyńskiego w ramach kłusownictwa. Obywatel został skazany na prace społeczne w zakładzie ubezpieczeń społecznych pod kierownictwem ministra Patkowskiego.');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('3','dabie','53.75', '14.46', '', '', '', '', '', '', '', '');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('4','jamno','54.27', '16.15', '', '', '', '', '', '', '', '');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('5','jeziorsko','51.82', '18.69', '', '', '', '', '', '', '', '');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('6','kornickie','52.24', '17.08', '', '', '', '', '', '', '', '');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('7','lebsko','54.71', '17.39', '', '', '', '', '', '', '', '');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('8','niegocin','54.00', '21.77', '', '', '', '', '', '', '', '');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('9','zbaszynskie','52.23', '15.90', '', '', '', '', '', '', '', '');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('10','powidzkie','52.41', '17.93', '', '', '', '', '', '', '', '');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('11','sniardwy','53.75', '21.72', '', '', '', '', '', '', '', '');")
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('1','krakow','50.06', '19.94', 'The biggest and the only true capital of IT in Poland. Loacted in the south of Poland in the large Wisła Valley a true polish silicon valley.', 'Mostly known for best QAs in Poland and few good Flutter developers.', 'Area 9851,0 - 10282,4 ha', '- max length 40 km', '- max width 32 km', 'average 9,8k PLN', 'max 43k PLN', 'In the summer of 2019 a fistfull of amazing java developers was recruited.');")
+        db?.execSQL("insert into " + TABLE_NAME_FISHERY + " values ('2','warsaw','52.22', '21.01', 'A little city, close to the russian border, best known for PHP and Fortran developers', 'PHP developers. Some Cobol developers available', 'Area 961,0 - 9282,4 ha', '- max length 10 km', '- max width 9 km', 'average 5,8k PLN', 'max 15k PLN', 'In the winter of 2020 one React developer has been recruited');")
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -96,16 +84,16 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
     fun insertFishing() {
         val db = this.writableDatabase
         db?.execSQL("DELETE FROM " + TABLE_NAME_FISHING)
-        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('1','Karp', '15kg', '1', '15-01-2020', '1', 'NEW');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('2','Karp', '12kg', '3', '16-01-2020', '1', 'NEW');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('3','Leszcz', '1kg', '4', '15-03-2020', '1', 'NEW');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('4','Karp', '18kg', '1', '26-03-2020', '1', 'NEW');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('5','Leszcz', '10kg', '5', '25-03-2020', '1', 'OLD');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('6','Szczupak', '8kg', '7', '01-04-2020', '1', 'OLD');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('7','Sum', '5kg', '3', '18-05-2020', '1', 'OLD');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('8','Leszcz', '4kg', '3', '07-06-2020', '1', 'NEW');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('9','Płoć', '4kg', '2', '19-10-2020', '1', 'OLD');")
-        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('10','Lin', '0.5kg', '1', '20-10-2020', '1', 'NEW');")
+        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('1','Dev in Test', '15k', '1', '15-01-2020', '1', 'NEW');")
+        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('2','Senior React Dev', '12k', '2', '16-01-2020', '1', 'NEW');")
+        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('3','AWS Dev', '16k', '1', '15-03-2020', '1', 'NEW');")
+        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('4','QA', '18k', '1', '26-03-2020', '1', 'NEW');")
+        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('5','Senior DevOps', '10k', '1', '25-03-2020', '1', 'OLD');")
+        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('6','Junior Flutter Dev', '8k', '1', '01-04-2020', '1', 'OLD');")
+        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('7','Java Dev', '5k', '2', '18-05-2020', '1', 'OLD');")
+        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('8','Kotlin Dev', '4k', '1', '07-06-2020', '1', 'NEW');")
+        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('9','QA', '4k', '2', '19-10-2020', '1', 'OLD');")
+        db?.execSQL("insert into " + TABLE_NAME_FISHING + " values ('10','Java Dev', '15k', '1', '20-10-2020', '1', 'NEW');")
     }
 
     fun getEvents(): MutableList<String> {
